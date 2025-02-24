@@ -1,0 +1,10 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Text To Word</title></head><body><p><strong>SALINE LEVEL MONITORING SYSTEM ARDUINO BOARD CODING</strong></p>
+<p>&nbsp;</p>
+<p><br>const int levelSensorPin = A0;&nbsp;&nbsp;<br>const int alertPin = 13;&nbsp;</p>
+<p>const int highThreshold = 800;&nbsp;&nbsp;<br>const int lowThreshold = 200;&nbsp;&nbsp;</p>
+<p>void setup() {<br><br>&nbsp; Serial.begin(9600);</p>
+<p>&nbsp;&nbsp;<br>&nbsp; pinMode(alertPin, OUTPUT);<br>}</p>
+<p>void loop() {<br>&nbsp;&nbsp;<br>&nbsp; int sensorValue = analogRead(levelSensorPin);</p>
+<p>&nbsp;<br>&nbsp; Serial.print("Sensor Value: ");<br>&nbsp; Serial.println(sensorValue);</p>
+<p>&nbsp;<br>&nbsp; if (sensorValue &gt; highThreshold) {<br>&nbsp; &nbsp;<br>&nbsp; &nbsp; digitalWrite(alertPin, HIGH);<br>&nbsp; &nbsp; Serial.println("Alert: High saline level detected!");<br>&nbsp; }&nbsp;<br>&nbsp; else if (sensorValue &lt; lowThreshold) {<br>&nbsp; &nbsp;<br>&nbsp; &nbsp; digitalWrite(alertPin, HIGH);<br>&nbsp; &nbsp; Serial.println("Alert: Low saline level detected!");<br>&nbsp; }&nbsp;<br>&nbsp; else {<br>&nbsp;&nbsp;<br>&nbsp; &nbsp; digitalWrite(alertPin, LOW);<br>&nbsp; &nbsp; Serial.println("Saline level is normal.");<br>&nbsp; }</p>
+<p>&nbsp;&nbsp;<br>&nbsp; delay(1000);<br>}</p></body></html>
